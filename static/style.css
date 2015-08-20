@@ -1,0 +1,157 @@
+body {
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+h1 {
+  margin-top: 0;
+  padding: 0.3em 0 0.3em 1em;
+  background: #36f;
+  color: #fff;
+  text-shadow: 0 0 5px #adf;
+}
+h1 a {
+  text-decoration: none;
+  color: #fff;
+}
+#content {
+  margin: 0.5em auto;
+  padding: 0 2em;
+  max-width: 800px;
+}
+div#footer {
+  margin: 4em 6em;
+  border-top: 1px solid #999;
+  font-size: 0.6em;
+  color: #444;
+  text-align: center;
+}
+
+
+h2 {
+  padding-left: 3em;
+  text-shadow: 0 0 5px #ddd, 0 0 5px #ddd;
+}
+p {
+  text-align: justify;
+}
+
+.important {
+  border: 1px solid #a00;
+  background: #f99;
+  border-radius: 0.5em;
+  width: 80%;
+  text-align: center;
+  margin: 1.5em auto;
+  padding: 2em 1em;
+  font-weight: bold;
+  color: #a00;
+  transition: background 500ms;
+}
+.important:hover {
+  background:#fbb;
+}
+
+div.uniquebutton span.button {
+  width: 100%;
+  display: inline-block;
+  padding: 0.5em;
+}
+div.doublebutton span.button {
+  width: 50%;
+  display: inline-block;
+  padding: 0.5em;
+}
+span.button a, input[type=submit] {
+  background: #939;
+  color: #fff;
+  padding: 0.5em;
+  width: 100%;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  border-top: 0;
+  border-left: 0;
+  border-radius: 0.5em;
+  border-bottom: 1px solid #515;
+  border-right: 1px solid #515;
+  transition: background 200ms;
+}
+span.button a:hover, input[type=submit]:hover {
+  background: #c8c;
+  border-bottom: 1px solid #939;
+  border-right: 1px solid #939;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 1em auto 2em auto;
+}
+td {
+  border: 1px solid #444;
+  padding: 0.2em 0.4em;
+}
+td.categoryname {
+  background: #03c;
+  color: #fff;
+}
+
+form {
+  border: 1px solid #888;
+  border-radius: 1em;
+  padding: 1em;
+}
+form h2 {
+  margin-top: 0;
+}
+
+label {
+  margin: 1em 0;
+  border-radius: 0.5em;
+  line-height: 3em;
+  transition: background 200ms;
+  cursor: pointer;
+}
+label.line {
+  display: block;
+}
+label.half {
+  display: inline-block;
+  width: 50%;
+}
+
+label:hover {
+  background: #ff9;
+}
+
+span.label {
+  width: 50%;
+  display: inline-block;
+  text-align: right;
+  padding-right: 2em;
+  vertical-align: top;
+}
+input, textarea {
+  font-family: 'Roboto Slab', serif;
+  font-size: 16px;
+  padding: 0.5em;
+}
+input[type=radio] {
+  margin-right: 0.5em;
+}
+input[type=text], textarea {
+  width: 50%;
+  border-radius: 0.5em;
+}
+input[type=submit] {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 736px) {
+  div#content {
+    padding: 0.2em;
+  }
+}

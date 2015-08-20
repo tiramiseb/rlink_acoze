@@ -1,0 +1,30 @@
+{% extends "skeleton.html" %}
+
+{% block title %}Liste des bugs{% endblock %}
+{% block subtitle %}La liste{% endblock %}
+
+{% block content %}
+{% if newbug %}
+<p class="important">Votre nouveau bug a bien été reçu. Merci pour votre participation&nbsp;! Il sera traité par un humain et intégré dans le site d'ici quelques jours.</p>
+{% endif %}
+<p>Voici la liste des bugs de la tablette R-Link, recensés par les volontaires y ayant participé.</p>
+<table>
+<tr><th>Type</th><th>Titre</th><th>Validations</th></tr>
+{% for category in bugs|groupby('category') %}
+<tr><td colspan="3" class="categoryname"> Catégorie «&nbsp;{{ category.grouper }}&nbsp;»</td></tr>
+{% for bug in category.list %}
+<tr><td>{{ bug.type }}</td><td><a href="/bugs/{{ bug.id }}">{{ bug.title }}</a></td><td>{{ bug.validators|count }}</td></tr>
+{% endfor %}
+{% endfor %}
+</table>
+<form method="post">
+<h2>Nouveau bug</h2>
+<p>Vous rencontrez un bug qui n'est pas dans la liste&nbsp;? Signalez-le&nbsp;!</p>
+<label class="line"><span class="label">Explication</span><textarea name="description" placeholder="Que se passe-t-il&nbsp;? Comment le reproduire&nbsp;?"></textarea></label>
+<label class="line"><span class="label">Votre pseudonyme/nom</span><input type="text" placeholder="Votre pseudonyme/nom" name="name"></label>
+<label class="line"><span class="label">Votre e-mail</span><input type="text" placeholder="Votre e-mail (non publié)" name="email"></label>
+<label class="line"><span class="label">Votre voiture</span><input type="text" placeholder="Modèle de votre Renault" name="car"></label>
+<label class="line"><span class="label">Version de R-Link</span><input type="text" placeholder="Version du logiciel (facultatif)" name="version"></label>
+<input type="submit" value="Soumettre mon rapport">
+</form>
+{% endblock %}

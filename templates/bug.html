@@ -1,0 +1,43 @@
+{% extends "skeleton.html" %}
+
+{% block title %}{{ bug.title }}{% endblock %}
+{% block subtitle %}{{ bug.title }}{% endblock %}
+
+{% block content %}
+{% if newreport %}
+<p class="important">Votre rapport a bien été reçu. Merci pour votre participation&nbsp;! Il sera traité par un humain et intégré dans le site d'ici quelques jours.</p>
+{% endif %}
+<div class="uniquebutton">
+<span class="button"><span class="button"><a href="/bugs">Retour à la liste</a></span>
+</div>
+<h2>Description du bug</h2>
+{{ bug.content|safe }}
+<form method="post">
+<h2>Et vous...&nbsp;?</h2>
+<label class="half"><span class="radio"><input type="radio" name="verif" value="yes" checked="checked">Je rencontre ce bug&nbsp;!</span></label><label class="half"><span class="radio"><input type="radio" name="verif" value="no">Chez moi ça marche...</span></label>
+<label class="line"><span class="label">Votre pseudonyme/nom</span><input type="text" placeholder="Votre pseudonyme/nom" name="name"></label>
+<label class="line"><span class="label">Votre e-mail</span><input type="text" placeholder="Votre e-mail (non publié)" name="email"></label>
+<label class="line"><span class="label">Votre voiture</span><input type="text" placeholder="Modèle de votre Renault" name="car"></label>
+<label class="line"><span class="label">Version de R-Link</span><input type="text" placeholder="Version du logiciel (facultatif)" name="version"></label>
+<label class="line"><span class="label">Un commentaire&nbsp;?</span><textarea name="comment" placeholder="Commentaire (facultatif)"></textarea></label>
+<input type="submit" value="Soumettre mon rapport">
+</form>
+<h2>Confirmations</h2>
+<p>Ce bug est confirmé par les personnes suivantes...</p>
+<table>
+<tr><th>Validé par...</th><th>sur une...</th></tr>
+{% for valid in bug.validators %}
+<tr><td>{{ valid.name }}</td><td>Renault {{ valid.car }}</th>
+{% endfor %}
+</table>
+{% if bug.working %}
+<h2>Bug inexistant...</h2>
+<p>Les personnes suivantes ne rencontrent pas ce bug...</p>
+<table>
+<tr><th>Ça fonctionne chez...</th></tr>
+{% for wk in bug.working %}
+<tr><td>{{ wk.name }}</td></th>
+{% endfor %}
+</table>
+{% endif %}
+{% endblock %}

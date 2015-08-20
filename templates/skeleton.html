@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>{% block title %}{% endblock %} | Bugs R-Link</title>
+<link href='//fonts.googleapis.com/css?family=Roboto+Slab:400,700' rel='stylesheet' type='text/css'>
+<link href="/static/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h1><a href="/">Bugs R-Link</a> &mdash; {% block subtitle %}{% endblock %}</h1>
+<div id="content">
+{% block content %}{% endblock %}
+</div>
+<div id="footer">
+Ce site est hébergé et géré par Sébastien Maccagnoni-Munch (seb@maccagnoni) pour l'Acoze.
+</div>
+</body>
+</html>
